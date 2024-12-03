@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google Search Results</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            max-width: 800px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .search-bar {
+            display: flex;
+            border: 1px solid #ddd;
+            padding: 10px;
+            margin-bottom: 20px;
+        }
+        .search-input {
+            flex-grow: 1;
+            border: none;
+            outline: none;
+        }
+        .search-result {
+            margin-bottom: 20px;
+            cursor: pointer;
+            border: 1px solid #f1f1f1;
+            padding: 10px;
+            transition: background-color 0.3s ease;
+        }
+        .search-result:hover {
+            background-color: #f5f5f5;
+        }
+        .result-title {
+            color: blue;
+            text-decoration: none;
+            font-size: 18px;
+        }
+        .result-url {
+            color: green;
+            font-size: 14px;
+        }
+        .result-description {
+            color: #666;
+            font-size: 14px;
+        }
+        .back-link {
+            display: block;
+            margin-top: 20px;
+            text-decoration: none;
+            color: #1a0dab;
+        }
+    </style>
+</head>
+<body>
+    <a href="index.html" class="back-link">← Back to Google Search</a>
+
+    <div class="search-bar">
+        <input type="text" class="search-input" value="Vrushabh Priyanka Wedding">
+        <span style="cursor: pointer;">🔍</span>
+    </div>
+
+    <div class="search-results">
+        <div class="search-result" onclick="window.location.href='wedding-details.html'">
+            <a href="wedding-details.html" class="result-title">Vrushabh & Priyanka Wedding - Official Invitation</a>
+            <div class="result-url">www.vrushabhpriyankawedding.com</div>
+            <div class="result-description">
+                Official wedding website for Vrushabh and Priyanka. 
+                Celebrating love and commitment on December 7, 2024.
+            </div>
+        </div>
+
+        <div class="search -result">
+            <a href="#" class="result-title">Other Wedding Resources</a>
+            <div class="result-url">www.weddingresources.com</div>
+            <div class="result-description">
+                Explore various wedding planning resources and tips.
+            </div>
+        </div>
+
+        <div class="search-result">
+            <a href="#" class="result-title">Wedding Venues in Navi Mumbai</a>
+            <div class="result-url">www.venuesnavi.com</div>
+            <div class="result-description">
+                Discover beautiful wedding venues in Navi Mumbai.
+            </div>
+        </div>
+    </div>
+</body>
+</html>

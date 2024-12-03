@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>#Vrushika - Wedding Celebration</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;400;600&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            font-family: 'Montserrat', sans-serif;
+            line-height: 1.6;
+            background-color: #f4f1de;
+            color: #3d405b;
+        }
+        .page-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 20px;
+        }
+        .navbar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 0;
+            border-bottom: 2px solid #e07a5f;
+        }
+        .logo {
+            font-family: 'Great Vibes', cursive;
+            font-size: 2.5rem;
+            color: #e07a5f;
+        }
+        .nav-links {
+            display: flex;
+            gap: 20px;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: #3d405b;
+            font-weight: 600;
+            transition: color 0.3s ease;
+        }
+        .nav-links a:hover {
+            color: #e07a5f;
+        }
+        .hero-section {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 30px;
+    margin-top: 40px;
+    align-items: center;
+    justify-content: center; /* Horizontally center the grid */
+    max-width: 1200px; /* Optional: limit max width */
+    margin-left: auto; /* Center the grid horizontally */
+    margin-right: auto; /* Center the grid horizontally */
+}
+
+        .hero-content {
+            text-align: center;
+            background-color: white;
+            padding: 30px;
+            border-radius: 10px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+        }
+        .couple-names {
+            font-family: 'Great Vibes', cursive;
+            font-size: 3rem;
+            color: #e07a5f;
+            margin-bottom: 20px;
+        }
+        .event-details {
+            background-color: #f2f2f2;
+            padding: 20px;
+            border-radius: 10px;
+            margin-top: 20px;
+        }
+        .rsvp-section {
+            text-align: center;
+            margin-top: 30px;
+        }
+        .rsvp-btn {
+            display: inline-block;
+            padding: 15px 30px;
+            background-color: #e07a5f;
+            color: white;
+            text-decoration: none;
+            border-radius: 5px;
+            font-weight: 600;
+            transition: background-color 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+        .rsvp-btn:hover {
+            background-color: #81b29a;
+        }
+        .celebration-overlay {
+            display: none;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(255,255,255,0.9);
+            z-index: 1000;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+        }
+        .confetti {
+            position: absolute;
+            width: 15px;
+            height: 15px;
+            background-color: #f1c40f;
+            transform: rotate(45deg);
+            animation: fall 5s linear infinite;
+        }
+        @keyframes fall {
+            to {
+                transform: translateY(100vh) rotate(360deg);
+            }
+        }
+        .celebration-content {
+            text-align: center;
+            z-index: 1001;
+        }
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background-color: #3d405b;
+            color: white;
+            margin-top: 30px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Navbar -->
+    <div class="page-container">
+        <nav class="navbar">
+            <div class="logo">#Vrushika</div>
+            <div class="nav-links">
+                <a href="#">Home</a>
+                <a href="#">Our Story</a>
+                <a href="#">Gallery</a>
+                <a href="#">Events</a>
+                <a href="#">Contact</a>
+            </div>
+        </nav>
+
+        <!-- Hero Section -->
+        <section class="hero-section">
+ 
+            <div class="hero-content">
+                <h1 class="couple-names">Vrushabh & Priyanka</h1>
+                <p>With the blessings of the almighty and elders, we invite you to join us in attending the Wedding Ceremony</p>
+                
+                <div class="event-details">
+                    <h3>Wedding Details</h3>
+                    <p><strong>Date:</strong> Saturday, 07 Dec 2024</p>
+                    <p><strong>Time:</strong> 12:45 PM Onwards</p>
+                    <p><strong>Venue:</strong> Somvanshi Kshatriya Pathare Hall, Uran, Navi Mumbai</p>
+                </div>
+
+                <div class="rsvp-section">
+                    <button class="rsvp-btn" onclick="showCelebration()">RSVP Now</button>
+                </div>
+            </div>
+        </section>
+    </div>
+
+    <!-- Celebration Overlay -->
+    <div id="celebrationOverlay" class="celebration-overlay">
+        <div class="celebration-content">
+            <h2>Thank you for your RSVP!</h2>
+            <p>We're excited to have you join our special day!</p>
+            <button onclick="closeCelebration()" style="margin-top: 20px; padding: 10px 20px;">Close</button>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <p>© 2024 #Vrushika Wedding. All Rights Reserved.</p>
+    </footer>
+
+    <script>
+        function showCelebration() {
+            const overlay = document.getElementById('celebrationOverlay');
+            overlay.style.display = 'flex';
+
+            // Create confetti
+            for (let i = 0; i < 100; i++) {
+                const confetti = document.createElement('div');
+                confetti.classList.add('confetti');
+                confetti.style.left = Math.random() * 100 + 'vw';
+                confetti.style.animationDelay = Math.random() * 5 + 's';
+                confetti.style.backgroundColor = getRandomColor();
+                overlay.appendChild(confetti);
+            }
+        }
+
+        function closeCelebration() {
+            const overlay = document.getElementById('celebrationOverlay');
+            overlay.style.display =  'none';
+            const confettiElements = document.querySelectorAll('.confetti');
+            confettiElements.forEach(confetti => confetti.remove());
+        }
+
+        function getRandomColor() {
+            const colors = ['#f1c40f', '#e67e22', '#e74c3c', '#8e44ad', '#3498db', '#2ecc71'];
+            return colors[Math.floor(Math.random() * colors.length)];
+        }
+    </script>
+</body>
+</html>

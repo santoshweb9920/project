@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Google</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            display: flex;
+            flex-direction: column;
+            height: 100vh;
+        }
+        .header {
+            display: flex;
+            justify-content: flex-end;
+            padding: 20px;
+        }
+        .google-container {
+            flex-grow: 1;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .google-logo {
+            display: flex;
+            margin-bottom: 20px;
+        }
+        .google-logo span {
+            font-size: 80px;
+            font-weight: 400;
+        }
+        .google-logo span:nth-child(1) { color: #4285F4; }
+        .google-logo span:nth-child(2) { color: #EA4335; }
+        .google-logo span:nth-child(3) { color: #FBBC05; }
+        .google-logo span:nth-child(4) { color: #4285F4; }
+        .google-logo span:nth-child(5) { color: #34A853; }
+        .google-logo span:nth-child(6) { color: #EA4335; }
+        .search-container {
+            display: flex;
+            width: 580px;
+            border: 1px solid #dfe1e5;
+            border-radius: 24px;
+            padding: 10px 20px;
+            box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+            align-items: center;
+            position: relative;
+        }
+        .search-input {
+            flex-grow: 1;
+            border: none;
+            outline: none;
+            font-size: 16px;
+            margin-right: 10px;
+        }
+        .typing-cursor {
+            position: absolute;
+            left: 50px;
+            animation: blink 0.7s infinite;
+        }
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0; }
+        }
+        .search-buttons {
+            margin-top: 20px;
+        }
+        .search-btn {
+            background-color: #f8f9fa;
+            border: 1px solid #f8f9fa;
+            border-radius: 4px;
+            color: #3c4043;
+            margin: 0 4px;
+            padding: 0 16px;
+            height: 36px;
+            cursor: pointer;
+            font-size: 14px;
+        }
+        .search-icon {
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <div class="header">
+        <a href="#" style="margin-right: 20px; text-decoration: none; color: black;">Gmail</a>
+        <a href="#" style="text-decoration: none; color: black;">Images</a>
+    </div>
+
+    <div class="google-container">
+        <div class="google-logo">
+            <span>G</span>
+            <span>o</span>
+            <span>o</span>
+            <span>g</span>
+            <span>l</span>
+            <span>e</span>
+        </div>
+        <div class="search-container">
+            <input type="text" id="searchInput" class="search-input" value="">
+            <span class="typing-cursor">|</span>
+            <span class="search-icon" onclick="window.location.href='results.html'">🔍</span>
+        </div>
+        <div class="search-buttons">
+            <button class="search-btn" onclick="window.location.href='results.html'">Google Search</button>
+            <button class="search-btn">I'm Feeling Lucky</button>
+        </div>
+    </div>
+
+    <div style="text-align: center; padding: 20px; background-color: #f2f2f2;">
+        <a href="#" style="margin-right: 20px; text-decoration: none; color: #5f6368;">About</a>
+        <a href="#" style="text-decoration: none; color: #5f6368;">Contact</a>
+    </div>
+
+    <script>
+        const searchInput = document.getElementById('searchInput');
+        const text = "Vrushabh Priyanka Wedding";
+        let index = 0;
+
+        function typeText() {
+            if (index < text.length) {
+                searchInput.value += text.charAt(index);
+                index++;
+                setTimeout(typeText, 100);
+            } else {
+                setTimeout(() => {
+                    // Start deleting
+                    function deleteText() {
+                        if (index > 0) {
+                            searchInput.value = searchInput.value.slice(0, -1);
+                            index--;
+                            setTimeout(deleteText, 50);
+                        } else {
+                            // Restart typing
+                            typeText();
+                        }
+                    }
+                    deleteText();
+                }, 2000);
+            }
+        }
+
+        // Start the typing animation
+        typeText();
+    </script>
+</body>
+</html>
